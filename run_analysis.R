@@ -10,7 +10,6 @@ x_combi <- rbind(x_train, x_test)
 y_combi <- rbind(y_train, y_test)
 subject_combi <- rbind(subject_train, subject_test)
 
-
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 
 x_names <- read.table("UCI HAR Dataset/features.txt")
@@ -20,7 +19,6 @@ names(x_combi) <- x_names[req_columns, 2]
 names(x_combi) <- tolower(names(x_combi))
 names(x_combi) <- gsub("[(]|[)]", "", names(x_combi))
 
-
 # 3. Uses descriptive activity names to name the activities in the data set.
 
 activity <- read.table("UCI HAR Dataset/activity_labels.txt")
@@ -28,12 +26,10 @@ activity[, 2] = gsub("_", "", tolower(as.character(activity[, 2])))
 y_combi[,1] = activity[y_combi[,1], 2]
 names(y_combi) <- "activity"
 
-
 # 4. Appropriately labels the data set with descriptive variable names.
 
 names(subject_combi) <- "subject"
 combined_data <- cbind(subject_combi, y_combi, x_combi)
-
 
 # 5. From the data set in Step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
