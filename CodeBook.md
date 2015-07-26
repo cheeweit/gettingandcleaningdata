@@ -1,4 +1,4 @@
-## Project Cook Book
+## Project Code Book
 
 The run_analysis.R script combines and cleans the data collected from the accelerometers of Samsung Galaxy S smartphones.
 
